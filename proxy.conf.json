@@ -1,0 +1,6 @@
+{
+  "/xtragyan": {
+    "target": "http://localhost",
+    "secure": false
+  }
+}

@@ -1,0 +1,176 @@
+<div class="top-content">
+   <app-header></app-header>
+   <div class="inner-bg">
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12 text">
+               <h1>Please complete<strong> KYC Questionnaire.</strong></h1>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 form-box">
+               <form role="form" action="/thankyou" method="post" class="registration-form">
+                  <fieldset style="display: none;">
+                     <div class="form-top">
+                        <div class="form-top-left">
+                           <h3>Step 1 / 5</h3>
+                           <h2><strong>PERSONAL INFORMATION</strong></h2>
+                        </div>
+                        <div class="form-top-right">
+                           <i class="fa fa-user"></i>
+                        </div>
+                     </div>
+                     <div class="form-bottom">
+                        <div class="form-group">
+                           <label class="sr-only" for="form-first-name">Street Address</label>
+                           <input type="text" name="form-first-name" placeholder="Street Address..." class="form-first-name form-control" id="">
+                        </div>
+                        <div class="form-group">
+                           <label class="sr-only" for="form-last-name">Address line</label>
+                           <input type="text" name="form-last-name" placeholder="Address line..." class="form-last-name form-control" id="">
+                        </div>
+                        <div class="form-group">
+                           <label class="sr-only" for="form-last-name">City</label>
+                           <input type="text" name="form-last-name" placeholder="City..." class="form-last-name form-control" id="">
+                        </div>
+                        <div class="form-group">
+                           <label class="sr-only" for="form-last-name">Postal code</label>
+                           <input type="number" name="form-last-name" placeholder="Postal code..." class="form-control" id="">
+                        </div>
+                        <div class="form-group">
+                           <select class="form-control" style="height: 50px;border:3px solid #ddd">
+                              <option value="0">Select options</option>
+                              <option value="1">Select options A</option>
+                              <option value="2">Select options B</option>
+                              <option value="3">Select options C</option>
+                           </select>
+                        </div>
+                        <div class="form-group">
+                           <label class="sr-only" for="form-last-name">Postal code</label>
+                           <input type="text" name="form-last-name" placeholder="" class="form-control" id="">
+                        </div>
+                        <button type="button" class="btn btn-next">Next</button>
+                     </div>
+                  </fieldset>
+                  <fieldset>
+                     <div class="form-top">
+                        <div class="form-top-left">
+                           <h3>Step 2 / 5</h3>
+                           <h2><strong>SELFIE AND PREVIEW</strong></h2>
+                        </div>
+                        <div class="form-top-right">
+                           <i class="fa fa-camera"></i>
+                        </div>
+                        <div class="myselfierow">
+                           <div class="row">
+                              <div class="col-md-6">
+                                 <div class="boximage">
+                                    <div class="imagebox">
+                                       <webcam [height]="250" [width]="800" [trigger]="triggerObservable" class="img-responsive" (imageCapture)="handleImage($event)"> </webcam>
+                                       <!-- <img src="assets/images/avatar-small.jpg" class="img-responsive" /> -->    
+                                       <input name="imgData" class="imgData" type="hidden" data-id="0">
+                                    </div>
+                                    <button type="button" (click)="triggerSnapshot();" class="btn btn-selfie actionBtn">TAKE A SELFIE</button>
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="boximage">
+                                    <div class="imagebox">
+                                       <img [src]="webcamImage.imageAsDataUrl" *ngIf="webcamImage;" class="img-responsive" /> 
+                                       <img src="assets/images/avatar-small.jpg" class="img-responsive" *ngIf="!webcamImage;" />
+                                    </div>
+                                    <button type="button" class="btn btn-selfie">SELFIE PREVIEW</button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="laststep mgt30"> 
+                           <button type="button" class="btn btn-previous">Previous</button>
+                           <button type="button" class="btn btn-next">Next</button>
+                        </div>
+                     </div>
+                  </fieldset>
+                  <fieldset style="display: none;">
+                     <div class="form-top">
+                        <div class="form-top-left">
+                           <h3>Step 3 / 5</h3>
+                           <h2><strong>UPLOAD IDENTITY PROOFS</strong></h2>
+                        </div>
+                        <div class="form-top-right">
+                           <i class="fa fa-camera-retro"></i>
+                        </div>
+                     </div>
+                     <div class="form-bottom">
+                        <div class="form-group">
+                           <h3>Please submit your identity Proofs. Identity Proofs must must be a valid Driver's Licence or Passport that is not Expired.</h3>
+                           <input type="file" name="" value="Upload Identity Proofs" class="btn btn-success" />
+                        </div>
+                        <button type="button" class="btn btn-previous">Previous</button>
+                        <button type="button" class="btn btn-next">Next</button>
+                     </div>
+                  </fieldset>
+
+
+                  <fieldset style="display: none;">
+                     <div class="form-top">
+                        <div class="form-top-left">
+                           <h3>Step 2 / 4</h3>
+                           <h2><strong>UPLOAD ADDRESS PROOF</strong></h2>
+                        </div>
+                        <div class="form-top-right">
+                           <i class="fa fa-camera-retro"></i>
+                        </div>
+                     </div>
+                     <div class="form-bottom">
+                        <div class="form-group">
+                           <input type="file" name="upload" value="UPLOAD"  class="btn btn-success" /> 
+                        </div>
+                        <button type="button" class="btn btn-previous">Previous</button>
+                        <button type="button" class="btn btn-next">Next</button>
+                     </div>
+                  </fieldset>
+
+                  <fieldset style="display: none;">
+                     <div class="form-top">
+                        <div class="form-top-left">
+                           <h3>Step 4 / 5</h3>
+                           <h2><strong>DECLARATION</strong></h2>
+                        </div>
+                        <div class="form-top-right">
+                           <i class="fa fa-camera-retro"></i>
+                        </div>
+                     </div>
+                     <div class="form-bottom">
+                        <div class="form-group">
+                          <h5>I must read a description stating that he is not a politically exposed person and click on agree button</h5>
+                        </div>
+                        <button type="button" class="btn btn-previous">Previous</button>
+                        <button type="button" class="btn btn-next">Next</button>
+                     </div>
+                  </fieldset>
+
+                  <fieldset style="display: none;">
+                     <div class="form-top">
+                        <div class="form-top-left">
+                           <h3>Step 4 / 5</h3>
+                           <h2><strong>THANK YOU!</strong></h2>
+                        </div>
+                        <div class="form-top-right">
+                           <i class="fa fa-camera-retro"></i>
+                        </div>
+                     </div>
+                     <div class="form-bottom">
+                        <div class="form-group">
+                          <h3 >Thank you for submitting KYC Questionnaire.</h3>
+                          <h3>It is currently being Reviewed, You will be notified once approved.</h3>
+                        </div>
+                        
+                     </div>
+                  </fieldset>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+   <app-footer></app-footer>
+</div>
